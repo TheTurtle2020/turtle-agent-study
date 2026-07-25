@@ -1,0 +1,6 @@
+-r chapter4/requirements.txt
+
+google-search-results==2.4.2
+pytest>=8.0,<9.0
+black>=24.0,<26.0
+mypy>=1.8,<2.0

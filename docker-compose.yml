@@ -1,0 +1,29 @@
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+      - pip-cache:/root/.cache/pip
+    ports:
+      - "8090:8090"
+    environment:
+      PYTHONPATH: /workspace
+      NODE_ENV: development
+    init: true
+    command: ["sleep", "infinity"]
+    tty: true
+    stdin_open: true
+    networks:
+      - agents-network
+
+volumes:
+  pip-cache:
+
+networks:
+  agents-network:
+    driver: bridge
