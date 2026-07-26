@@ -14,6 +14,7 @@ shell: up
 
 test:
 	docker compose run --rm dev python -m compileall -q chapter4 chapter6 chapter7
+	docker compose run --rm dev env PYTHONPATH=/workspace/chapter7:/workspace pytest -q chapter7/tests
 
 check: test
 
